@@ -6,6 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/status.min.css">
   <title>Status</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  <script type="text/javascript">
+    var spreadsheet_url = 'https://docs.google.com/spreadsheets/d/17gBHxdplEGLlI1kiE3tay2NdIRFbyHpfAzJ-f17ZIXM/pub?output=csv';
+
+    function init() {
+      Papa.parse(spreadsheet_url, {
+        download: true,
+        header: true,
+        complete: BarsUpdater
+      })
+    }
+
+    window.addEventListener('DOMContentLoaded', init)
+
+    function BarsUpdater(results) {
+      
+      var data = results.data;
+
+      document.getElementById("hBar").dataset.total = data[0].Vita;
+      document.getElementById("hBar").dataset.damage = data[1].Vita;
+      document.getElementById("hBar").dataset.value = data[2].Vita;
+      document.getElementById("sBar").dataset.total = data[0].Stamina;
+      document.getElementById("sBar").dataset.damage = data[1].Stamina;
+      document.getElementById("sBar").dataset.value = data[2].Stamina;
+      document.getElementById("mBar").dataset.total = data[0].Senno;
+      document.getElementById("mBar").dataset.damage = data[1].Senno;
+      document.getElementById("mBar").dataset.value = data[2].Senno;
+    }       
+  </script>
 </head>
 <body>
   <div class="container">
