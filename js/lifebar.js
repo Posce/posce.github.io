@@ -55,6 +55,13 @@ var hitWidth3 = (damage3 / value3) * 100 + "%";
 hit3.style.width = hitWidth3;
 mBar.dataset.value = newValue3 - mBar.dataset.total;
 
+if (newValue3 === 0){
+  mBar.classList.add("emptySenno");
+}
+else{
+  mBar.classList.remove("emptySenno");
+}
+
 setTimeout(function(){
   hit3.style.width = 0;
   bar3.style.width = barWidth3 + "%";
