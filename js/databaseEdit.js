@@ -44,17 +44,8 @@ userRef.on('value', (snapshot) =>{
   SennoTotale.value = data.Totale_Senno;
   SennoValore.value = data.Valore_Senno;
   SennoDanno.value = data.Danno_Senno;
-  rootRef.child(userId).update({
-    Valore_Vita: +VitaValore.value - +VitaDanno.value,
-    Totale_Vita: VitaTotale.value,
-    Danno_Vita: "0",
-    Valore_Stamina: +StaminaValore.value - +StaminaDanno.value,
-    Totale_Stamina: StaminaTotale.value,
-    Danno_Stamina: "0",
-    Valore_Senno: +SennoValore.value - +SennoDanno.value,
-    Totale_Senno: SennoTotale.value,
-    Danno_Senno: "0"
-  });
+  setTimeout(myGreeting, 5000)
+  
 });
 
 
@@ -73,7 +64,20 @@ rootRef.child(userId).update({
   Totale_Senno: SennoTotale.value,
   Danno_Senno: SennoDanno.value
 });
+setTimeout(updAgg, 500);
 }
 
-
+function updAgg(){
+  rootRef.child(userId).update({
+    Valore_Vita: +VitaValore.value - +VitaDanno.value,
+    Totale_Vita: VitaTotale.value,
+    Danno_Vita: "0",
+    Valore_Stamina: +StaminaValore.value - +StaminaDanno.value,
+    Totale_Stamina: StaminaTotale.value,
+    Danno_Stamina: "0",
+    Valore_Senno: +SennoValore.value - +SennoDanno.value,
+    Totale_Senno: SennoTotale.value,
+    Danno_Senno: "0"
+  });
+}
 
