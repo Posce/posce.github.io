@@ -19,6 +19,8 @@ const SennoTotale = document.getElementById('SennoTotal');
 const SennoValore = document.getElementById('SennoValue');
 const SennoDanno = document.getElementById('SennoDamage');
 
+
+
 userRef.on('value', (snapshot) =>{
   console.log("changing");
   const data = snapshot.val();
