@@ -10,6 +10,14 @@
 <body>
   <div id="wrapper">
   <div class="container">
+    <button class="back" onclick="location.href='index.html'">
+      <span class="top-left"></span>
+      <span class="top-right"></span>
+      <span class="bottom-left"></span>
+      <span class="bottom-right"></span>
+      <span class="stalk"></span>
+    </button>
+    <div class="proimg" data-proimage="https://tuberfan.com/sito/wp-content/uploads/2019/04/Synergo-Joker-1024x576.jpg"></div>
     <h1 id="Nome">Giovanni</h1> &nbsp;
     <h1 id="Cognome">Ranone</h1>
     <i id="Sottotitolo">Cucinatore Umano</i>
@@ -33,6 +41,12 @@
     </div>
   </div>
 </div>
+<svg style="display: none;">
+  <filter id="wavy2">
+    <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
+    <feDisplacementMap in="SourceGraphic" scale="20" />
+  </filter>
+</svg>
   <script src="./js/lifebar.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
