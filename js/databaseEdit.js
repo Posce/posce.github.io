@@ -4,19 +4,27 @@ const database = firebase.database();
 const rootRef = database.ref('dati');
 const userRef = database.ref('dati/' + userId);
 
-VitaTotale = document.getElementById('VitaTotal');
-VitaValore = document.getElementById('VitaValue');
-VitaDanno = document.getElementById('VitaDamage');
-StaminaTotale = document.getElementById('StaminaTotal');
-StaminaValore = document.getElementById('StaminaValue');
-StaminaDanno = document.getElementById('StaminaDamage');
-SennoTotale = document.getElementById('SennoTotal');
-SennoValore = document.getElementById('SennoValue');
-SennoDanno = document.getElementById('SennoDamage');
+const NomePersonaggio = document.getElementById('Nome');
+const CognomePersonaggio = document.getElementById('Cognome');
+const SottotitoloPersonaggio = document.getElementById('Sottotitolo');
+
+
+const VitaTotale = document.getElementById('VitaTotal');
+const VitaValore = document.getElementById('VitaValue');
+const VitaDanno = document.getElementById('VitaDamage');
+const StaminaTotale = document.getElementById('StaminaTotal');
+const StaminaValore = document.getElementById('StaminaValue');
+const StaminaDanno = document.getElementById('StaminaDamage');
+const SennoTotale = document.getElementById('SennoTotal');
+const SennoValore = document.getElementById('SennoValue');
+const SennoDanno = document.getElementById('SennoDamage');
 
 userRef.on('value', (snapshot) =>{
   console.log("changing");
   const data = snapshot.val();
+  NomePersonaggio.innerHTML = data.Nome_Personaggio;
+  CognomePersonaggio.innerHTML = data.Cognome_Personaggio;
+  SottotitoloPersonaggio.innerHTML = data.Sottotitolo_Personaggio;
   hBar.dataset.value = data.Valore_Vita;
   hBar.dataset.total = data.Totale_Vita;
   hBar.dataset.damage = data.Danno_Vita;
@@ -47,18 +55,20 @@ userRef.on('value', (snapshot) =>{
     Totale_Senno: SennoTotale.value,
     Danno_Senno: "0"
   });
-
 });
 
 
 function Aggiorna(){
 rootRef.child(userId).set({
+  Nome_Personaggio: NomePersonaggio.innerHTML,
+  Cognome_Personaggio: CognomePersonaggio.innerHTML,
+  Sottotitolo_Personaggio: SottotitoloPersonaggio.innerHTML,
   Valore_Vita: VitaValore.value,
   Totale_Vita: VitaTotale.value,
   Danno_Vita: VitaDanno.value,
   Valore_Stamina: StaminaValore.value,
   Totale_Stamina: StaminaTotale.value,
-  Danno_Stamina: StaminaDanno.value ,
+  Danno_Stamina: StaminaDanno.value,
   Valore_Senno: SennoValore.value,
   Totale_Senno: SennoTotale.value,
   Danno_Senno: SennoDanno.value
