@@ -44,8 +44,6 @@ userRef.on('value', (snapshot) =>{
   SennoTotale.value = data.Totale_Senno;
   SennoValore.value = data.Valore_Senno;
   SennoDanno.value = data.Danno_Senno;
-  setTimeout(myGreeting, 5000)
-  
 });
 
 
