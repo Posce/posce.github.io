@@ -6,35 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/status.min.css">
   <title>Status</title>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-  <script type="text/javascript">
-    var spreadsheet_url = 'https://docs.google.com/spreadsheets/d/17gBHxdplEGLlI1kiE3tay2NdIRFbyHpfAzJ-f17ZIXM/pub?output=csv';
-
-    function init() {
-      Papa.parse(spreadsheet_url, {
-        download: true,
-        header: true,
-        complete: BarsUpdater
-      })
-    }
-
-    window.addEventListener('DOMContentLoaded', init)
-
-    function BarsUpdater(results) {
-      
-      var data = results.data;
-
-      document.getElementById("hBar").dataset.total = data[0].Vita;
-      document.getElementById("hBar").dataset.damage = data[1].Vita;
-      document.getElementById("hBar").dataset.value = data[2].Vita;
-      document.getElementById("sBar").dataset.total = data[0].Stamina;
-      document.getElementById("sBar").dataset.damage = data[1].Stamina;
-      document.getElementById("sBar").dataset.value = data[2].Stamina;
-      document.getElementById("mBar").dataset.total = data[0].Senno;
-      document.getElementById("mBar").dataset.damage = data[1].Senno;
-      document.getElementById("mBar").dataset.value = data[2].Senno;
-    }       
-  </script>
 </head>
 <body>
   <div class="container">
@@ -42,24 +13,42 @@
     <h1>Ranone</h1>
     <i>Cucinatore Umano</i>
     <h3>Vita</h3>
-    <div class="health-bar" id="hBar" data-total="30" data-value="10" data-damage="2">
+    <div class="health-bar" id="hBar" data-total="0" data-value="0" data-damage="0">
       <div class="bar" id="bar">
           <div class="hit" id="hit"></div>
       </div>
     </div>
     <h3>Stamina</h3>
-    <div class="health-bar" id="sBar" data-total="10" data-value="6" data-damage="1">
+    <div class="health-bar" id="sBar" data-total="0" data-value="0" data-damage="0">
       <div class="bar" id="bar2">
           <div class="hit" id="hit2"></div>
       </div>
     </div>
     <h3>Senno</h3>
-    <div class="health-bar" id="mBar" data-total="16" data-value="-6" data-damage="0">
+    <div class="health-bar" id="mBar" data-total="0" data-value="0" data-damage="0">
       <div class="bar" id="bar3">
           <div class="hit" id="hit3"></div>
       </div>
     </div>
   </div>
   <script src="./js/lifebar.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKeMRnpPIe4Ex-Nfvz6CbQJWBhXFBozDg",
+      authDomain: "progetto-rpg.firebaseapp.com",
+      projectId: "progetto-rpg",
+      storageBucket: "progetto-rpg.appspot.com",
+      messagingSenderId: "59462570356",
+      appId: "1:59462570356:web:4ba581a9d77f196a961c21",
+      databaseURL: "https://progetto-rpg-default-rtdb.europe-west1.firebasedatabase.app/"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="./js/database.js"></script>
 </body>
 </html>

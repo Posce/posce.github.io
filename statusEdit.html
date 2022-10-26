@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/status.min.css">
+  <title>Status</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Giovanni &nbsp;</h1>
+    <h1>Ranone</h1>
+    <i>Cucinatore Umano</i>
+    <h3>Vita</h3>
+    <div class="health-bar" id="hBar" data-total="30" data-value="10" data-damage="2">
+      <div class="bar" id="bar">
+        <div class="hit" id="hit"></div>
+      </div>
+    </div>
+    <p class="inputcontainer">
+      <input id="VitaTotal" type="number" /><label for="VitaTotal">Vita Massima</label></p>
+    <p class="inputcontainer">
+      <input id="VitaValue" type="number" /><label for="VitaValue">Vita Valore</label></p>
+    <p class="inputcontainer">
+      <input id="VitaDamage" type="number" /><label for="VitaDamage">Vita Modifier</label></p>
+    <h3>Stamina</h3>
+    <div class="health-bar" id="sBar" data-total="10" data-value="6" data-damage="1">
+      <div class="bar" id="bar2">
+        <div class="hit" id="hit2"></div>
+      </div>
+    </div>
+    <p class="inputcontainer">
+      <input id="StaminaTotal" type="number" /><label for="StaminaTotal">Stamina Massima</label></p>
+    <p class="inputcontainer">
+      <input id="StaminaValue" type="number" /><label for="StaminaTotal">Stamina Valore</label></p>
+    <p class="inputcontainer">
+      <input id="StaminaDamage" type="number" /><label for="StaminaDamage">Stamina Modifier</label></p>
+    <h3>Senno</h3>
+    <div class="health-bar" id="mBar" data-total="16" data-value="-6" data-damage="0">
+      <div class="bar" id="bar3">
+        <div class="hit" id="hit3"></div>
+      </div>
+    </div>
+    <p class="inputcontainer">
+      <input id="SennoTotal" type="number" /><label for="SennoTotal">Senno Massimo</label></p>
+    <p class="inputcontainer">
+      <input id="SennoValue" type="number" /><label for="SennoTotal">Senno Valore</label></p>
+    <p class="inputcontainer">
+      <input id="SennoDamage" type="number" /><label for="SennoDamage">Senno Modifier</label></p>
+    </p>
+    <button class="button" onclick="Aggiorna();">AGGIORNA</button>
+  </div>
+  <script src="./js/lifebar.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKeMRnpPIe4Ex-Nfvz6CbQJWBhXFBozDg",
+      authDomain: "progetto-rpg.firebaseapp.com",
+      projectId: "progetto-rpg",
+      storageBucket: "progetto-rpg.appspot.com",
+      messagingSenderId: "59462570356",
+      appId: "1:59462570356:web:4ba581a9d77f196a961c21",
+      databaseURL: "https://progetto-rpg-default-rtdb.europe-west1.firebasedatabase.app/"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="./js/databaseEdit.js"></script>
+</body>
+
+</html>

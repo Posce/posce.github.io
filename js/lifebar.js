@@ -1,3 +1,5 @@
+function lifebar(){
+
 var hBar = document.getElementById("hBar");
 var bar = document.getElementById("bar");
 var hit = document.getElementById("hit");
@@ -57,3 +59,6 @@ setTimeout(function(){
   hit3.style.width = 0;
   bar3.style.width = barWidth3 + "%";
 }, 500);
+
+}
+lifebar();
