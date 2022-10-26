@@ -44,7 +44,7 @@ userRef.on('value', (snapshot) =>{
   SennoTotale.value = data.Totale_Senno;
   SennoValore.value = data.Valore_Senno;
   SennoDanno.value = data.Danno_Senno;
-  rootRef.child(userId).set({
+  rootRef.child(userId).update({
     Valore_Vita: +VitaValore.value - +VitaDanno.value,
     Totale_Vita: VitaTotale.value,
     Danno_Vita: "0",
@@ -59,7 +59,7 @@ userRef.on('value', (snapshot) =>{
 
 
 function Aggiorna(){
-rootRef.child(userId).set({
+rootRef.child(userId).update({
   Nome_Personaggio: NomePersonaggio.innerHTML,
   Cognome_Personaggio: CognomePersonaggio.innerHTML,
   Sottotitolo_Personaggio: SottotitoloPersonaggio.innerHTML,
