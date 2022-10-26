@@ -4,6 +4,7 @@ const userId = 1;
 NomePersonaggio = document.getElementById('Nome');
 CognomePersonaggio = document.getElementById('Cognome');
 SottotitoloPersonaggio = document.getElementById('Sottotitolo');
+const ImmagineProfilo = document.getElementById('proImg');
 
 const database = firebase.database();
 const rootRef = database.ref('dati');
@@ -15,6 +16,7 @@ userRef.on('value', (snapshot) =>{
   NomePersonaggio.innerHTML = data.Nome_Personaggio;
   CognomePersonaggio.innerHTML = data.Cognome_Personaggio;
   SottotitoloPersonaggio.innerHTML = data.Sottotitolo_Personaggio;
+  proImg.style.setProperty('--proimage-link', "url("+ data.Immagine_Profilo+ ")");
   hBar.dataset.value = data.Valore_Vita;
   hBar.dataset.total = data.Totale_Vita;
   hBar.dataset.damage = data.Danno_Vita;

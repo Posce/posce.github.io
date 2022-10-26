@@ -8,6 +8,8 @@ const NomePersonaggio = document.getElementById('Nome');
 const CognomePersonaggio = document.getElementById('Cognome');
 const SottotitoloPersonaggio = document.getElementById('Sottotitolo');
 
+const ImmagineProfilo = document.getElementById('proImg');
+const ImmagineProfiloEdit = document.getElementById('proImgEdit');
 
 const VitaTotale = document.getElementById('VitaTotal');
 const VitaValore = document.getElementById('VitaValue');
@@ -27,6 +29,7 @@ userRef.on('value', (snapshot) =>{
   NomePersonaggio.innerHTML = data.Nome_Personaggio;
   CognomePersonaggio.innerHTML = data.Cognome_Personaggio;
   SottotitoloPersonaggio.innerHTML = data.Sottotitolo_Personaggio;
+  proImg.style.setProperty('--proimage-link', "url("+ data.Immagine_Profilo+ ")");
   hBar.dataset.value = data.Valore_Vita;
   hBar.dataset.total = data.Totale_Vita;
   hBar.dataset.damage = data.Danno_Vita;
@@ -37,6 +40,7 @@ userRef.on('value', (snapshot) =>{
   mBar.dataset.total = data.Totale_Senno;
   mBar.dataset.damage = data.Danno_Senno;
   lifebar();
+  ImmagineProfiloEdit.value = data.Immagine_Profilo;
   VitaTotale.value = data.Totale_Vita;
   VitaValore.value = data.Valore_Vita;
   VitaDanno.value = data.Danno_Vita;
@@ -53,6 +57,7 @@ function Aggiorna(){
 rootRef.child(userId).update({
   Nome_Personaggio: NomePersonaggio.innerHTML,
   Cognome_Personaggio: CognomePersonaggio.innerHTML,
+  Immagine_Profilo: ImmagineProfiloEdit.value,
   Sottotitolo_Personaggio: SottotitoloPersonaggio.innerHTML,
   Valore_Vita: VitaValore.value,
   Totale_Vita: VitaTotale.value,

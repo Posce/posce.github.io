@@ -11,11 +11,15 @@
 
 <body>
   <div id="wrapper">
+    
   <div class="container">
+    <div class="proimg" id="proImg"></div>
+    <p class="inputcontainer">
+      <input id="proImgEdit" type="text" /><label for="proImgEdit">Link Immagine</label></p>
+    <br>
     <h1 id="Nome" contenteditable="true">Giovanni</h1>&nbsp;
     <h1 id="Cognome" contenteditable="true">Ranone</h1>
     <i id="Sottotitolo" contenteditable="true">Cucinatore Umano</i>
- 
     <h3>Vita</h3>
     <div class="health-bar" id="hBar" data-total="30" data-value="10" data-damage="2">
       <div class="bar" id="bar">
@@ -56,6 +60,12 @@
     <button class="button" onclick="Aggiorna();">AGGIORNA</button>
   </div>
 </div>
+<svg style="display: none;">
+  <filter id="wavy2">
+    <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
+    <feDisplacementMap in="SourceGraphic" scale="20" />
+  </filter>
+</svg>
   <script src="./js/lifebar.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
