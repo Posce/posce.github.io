@@ -1,23 +1,20 @@
 
 const userId = 1;
 
+NomePersonaggio = document.getElementById('Nome');
+CognomePersonaggio = document.getElementById('Cognome');
+SottotitoloPersonaggio = document.getElementById('Sottotitolo');
+
 const database = firebase.database();
 const rootRef = database.ref('dati');
 const userRef = database.ref('dati/' + userId);
 
-const hBarValue = hBar.dataset.value;
-const hBarTotal = hBar.dataset.total;
-const hBarDamage = hBar.dataset.damage;
-const sBarValue = sBar.dataset.value;
-const sBarTotal = sBar.dataset.total;
-const sBarDamage = sBar.dataset.damage;
-const mBarValue = mBar.dataset.value;
-const mBarTotal = mBar.dataset.total;
-const mBarDamage = mBar.dataset.damage;
-
 userRef.on('value', (snapshot) =>{
   console.log("changing");
   const data = snapshot.val();
+  NomePersonaggio.innerHTML = data.Nome_Personaggio;
+  CognomePersonaggio.innerHTML = data.Cognome_Personaggio;
+  SottotitoloPersonaggio.innerHTML = data.Sottotitolo_Personaggio;
   hBar.dataset.value = data.Valore_Vita;
   hBar.dataset.total = data.Totale_Vita;
   hBar.dataset.damage = data.Danno_Vita;
